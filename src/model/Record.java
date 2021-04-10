@@ -3,9 +3,9 @@ package model;
 public class Record {
 
 	private String idType;
-	private int id;
+	private long id;
 	
-	private Record(int typeNumber, int id) {
+	public Record(int typeNumber, long id) {
 		this.idType = IdType.values()[typeNumber].toString();
         this.id = id;
 	}
@@ -18,7 +18,7 @@ public class Record {
 		this.idType = idType;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

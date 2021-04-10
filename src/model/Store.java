@@ -9,7 +9,7 @@ import exceptions.DayException;
 import exceptions.TypeException;
 
 public class Store {
-		public final static String TYPE_ID_NOT_ALLOWED = "TI";
+		public final static String ID_TYPE_NOT_ALLOWED = "TI";
 	    private List<Record> records;
 	    private int count;
 	    
@@ -34,8 +34,6 @@ public class Store {
 	            
 	            throw new DayException(id, day);
 	        }
-	        
-	        
 	        Record temp = new Record(typeNumber, id);
 	        records.add(temp);
 	    }
@@ -53,12 +51,32 @@ public class Store {
 	        return access;
 	    }
 	    
-	    public boolean idTypeValidation(String type){
+	    public void addCount(){
+		    count++;
+		}
+
+		public boolean idTypeValidation(String type){
 	        boolean access = false;
 
-	        if(!type.equals(TYPE_ID_NOT_ALLOWED)){
+	        if(!type.equals(ID_TYPE_NOT_ALLOWED)){
 	            access = true;
 	        }
 	        return access;
+	    }
+	    
+	    public List<Record> getRecords() {
+		    return records;
+		}
+
+		public void setRecords(List<Record> records) {
+		    this.records = records;
+		}
+
+		public long getCount() {
+	        return count;
+	    }
+
+	    public void setCount(int count) {
+	        this.count = count;
 	    }
 }
